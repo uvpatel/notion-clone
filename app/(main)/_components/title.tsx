@@ -49,7 +49,7 @@ export const Title = ({ initialData }: TitleProps) => {
       {isEditing ? (
         <Input
           ref={inputRef}
-          value={initialData?.title}
+          value={title}
           onClick={enableInput}
           onBlur={disableInput}
           onChange={onChange}
