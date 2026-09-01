@@ -1,19 +1,17 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 export const useOrigin = () => {
-  const [mounted, setMounted] = useState(false);
-  const origin =
-    typeof window !== "undefined" && window.location.origin
-      ? window.location.origin
-      : "";
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
-  useEffect(() => {
-    setMounted(true);
-  });
-
-  if (!mounted) {
+  if (!isClient) {
     return "";
   }
 
-  return origin;
+  return typeof window !== "undefined" && window.location.origin
+    ? window.location.origin
+    : "";
 };
