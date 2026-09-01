@@ -1,4 +1,4 @@
-export default {
+const authConfig = {
   providers: [
     {
       domain: "https://fitting-mastodon-90.clerk.accounts.dev",
@@ -6,3 +6,6 @@ export default {
     },
   ],
 };
+
+export default authConfig;
+
